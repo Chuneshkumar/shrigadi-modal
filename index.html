@@ -7,7 +7,19 @@
   <title>Modals</title>
   <!-- CSS only -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <style>
+    div.modal-body{
+      position: relative;
+    }
+    #closeBtn{
+      position: absolute;
+      color:#fff;
+      top:2%;
+      right:2%;
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- Button trigger modal -->
@@ -16,20 +28,21 @@
    </button> -->
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Register</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <!-- <div class="modal-header"> -->
+          <!-- <h5 class="modal-title" id="exampleModalLabel">Register</h5> -->
+
+        <!-- </div> -->
+        <div class="modal-body p-0 m-0">
+          <button type="button" class="close" id="closeBtn" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
+          <img src="Final-min.jpg" class="card-img-top" alt="Welcome modal">
         </div>
-        <div class="modal-body">
-          <img src="Final.png" class="card-img-top" alt="Welcome modal">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <div class="modal-footer mx-auto">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
           <a href="getstarted.html" id="modalCTA" target="_blank" class="btn btn-primary" >Register for Free</a>
           <!-- <a href="#"></a> -->
         </div>

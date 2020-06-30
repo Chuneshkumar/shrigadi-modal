@@ -19,52 +19,43 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
 
 </head>
-<body style="background: linear-gradient(180deg, #8E2DE2, #4A00E0) no-repeat; min-height:100vh;" class="d-flex align-items-center">
+<body style="background: linear-gradient(180deg, #762775, #7455cd) no-repeat; min-height:100vh; " class="d-flex align-items-center">
 
 
-<div class="card  mx-auto align-middle" style="width: 20rem;" >
-  <div class="card-img-top p-2 text-center" style="background: #0d6efd; color:white;">
-    <h3>Let's get started</h3>
-    <p>Enter your mobile number to sign up/ sign in to your LOREM account</p>
+<div class="card  mx-auto align-middle" style="width: 25rem;" >
+  <div class="card-img-top p-2 text-center" style="background: #2986ff; color:white;">
+    <h3 class="pb-3">Let's get started</h3>
+    <p class="pb-2 px-4">Enter your mobile number to sign up/ sign in to your account</p>
 
   <form action="thankyou.html">
-    <div class="input-group mb-3">
+    <div class="input-group mb-3 px-4">
     <span class="input-group-text" id="basic-addon1">+91</span>
-    <input type="tel" autocomplete="off" minlength="10"  maxlength="10" class="form-control" required placeholder="Enter your mobile number" aria-label="WhatsApp number" aria-describedby="basic-addon1">
+    <input type="tel" autocomplete="off" id="number" minlength="10" pattern="[0-9]{10}" maxlength="10" class="form-control" required placeholder="Enter your mobile number" aria-label="WhatsApp number" aria-describedby="basic-addon1">
     </div >
-    <button type="submit" class="btn btn-secondary my-3">Submit</button>
+    <button type="submit" id="submitBtn" class="btn btn-secondary my-3">Submit</button>
   </form>
 </div>
-  <div class="card-body">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="flexCheckChecked" checked  >
-      <label class="form-check-label" for="flexCheckChecked">
-      Previous years Question-Papers
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="flexCheckChecked" checked >
-      <label class="form-check-label" for="flexCheckChecked">
-      Ask doubts
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="flexCheckChecked" checked >
-      <label class="form-check-label" for="flexCheckChecked">
-      1000+ Videos on .. ....
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="flexCheckChecked" checked >
-      <label class="form-check-label" for="flexCheckChecked">
-      Free Unlimited Practice
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="flexCheckChecked" checked  >
-      <label class="form-check-label" for="flexCheckChecked">
-      Free .... & ....
-      </label>
+  <div class="card-body d-flex flex-column justify-content-between">
+      <div class="d-flex align-items-start justify-content-start">
+        <img src="tick.svg" alt="check">
+        <p>Previous Year Question Papers</p>
+      </div>
+      <div class="d-flex align-items-start">
+        <img src="tick.svg" alt="check">
+        <p>Ask doubts</p>
+      </div>
+      <div class="d-flex align-items-start">
+        <img src="tick.svg" alt="check">
+        <p>1000+ Videos on all topics</p>
+      </div>
+      <div class="d-flex align-items-start">
+        <img src="tick.svg" alt="check">
+        <p>Free unlimited Practice</p>
+      </div>
+      <div class="d-flex align-items-start">
+        <img src="tick.svg" alt="check">
+        <p>Free Test & Analysis</p>
+      </div>
     </div>
     <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p > -->
   </div>
@@ -72,5 +63,22 @@
 
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"> </script >
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script >
+  <script>
+    let number;
+    window.document.querySelector("#number").addEventListener("keyup", (e)=>{
+      number = e.target.value.toString().length;
+      console.log(number);
+      if(number == 10)
+      {
+        document.querySelector("#submitBtn").classList.remove("btn-secondary");
+        document.querySelector("#submitBtn").classList.add("btn-success");
+      }
+      else{
+        document.querySelector("#submitBtn").classList.add("btn-secondary");
+        document.querySelector("#submitBtn").classList.remove("btn-success");
+
+      }
+    });
+  </script>
 </body>
 </html>
