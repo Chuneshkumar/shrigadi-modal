@@ -6,42 +6,62 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Login with OTP</title>
   <style >
-  	body{
-  	    background: -webkit-linear-gradient(#762775, #7455cd) no-repeat;
-  	    background: -o-linear-gradient(#762775, #7455cd) no-repeat;
-  	    background: linear-gradient(#762775, #7455cd) no-repeat; min-height:100vh; 
-  	  	color:var(--bs-white);
-  	  }
-  	  h1{
-  	  	color:var(--bs-white);
-  	  }
-  	  html, p{
-  	  	color: var(--bs-white) !important;
-  	  }
-  	#main > div{
-  		min-height: 80vh;
-  	}
-  	.btn{
-  		color: var(--bs-white);
-  	}
-  	#editBtn{
-  		padding: 0;
-  		border:0; 
-  		color: var(--bs-white);
-  		background-color: transparent;
-  	}
-  	#exampleModal > * > div{
-  		background-color: var(--bs-blue);
-  	}
-  	#exampleModal > * > * > div {
-  		position: relative;
-  	}
-	#close{
-		position: absolute;
-		top: 2%;
-		right: 2%;
-		color: #fff;
-	}
+	  	body{
+	  	    background: -webkit-linear-gradient(#762775, #7455cd) no-repeat;
+	  	    background: -o-linear-gradient(#762775, #7455cd) no-repeat;
+	  	    background: linear-gradient(#762775, #7455cd) no-repeat; min-height:100vh; 
+	  	  	color:var(--bs-white);
+
+	  	  }
+	  	h1{
+	  	  	color:var(--bs-white);
+	  	  }
+	  	html, p{
+	  	  	color: var(--bs-white) !important;
+	  	  }
+  		#main{
+	  	  	height:100vh;
+	  	  }
+	  	#main > div{
+	  		min-height: 80%;
+	  		}
+	  	.btn{
+	  		color: var(--bs-white);
+	  		}
+	  	#editBtn{
+	  		padding: 0;
+	  		border:0; 
+	  		color: var(--bs-white);
+	  		background-color: transparent;
+	  	}
+	  	#exampleModal > * > div{
+	  		background-color: var(--bs-blue);
+	  	}
+	  	#exampleModal > * > * > div {
+	  		position: relative;
+	  	}
+		#close{
+			position: absolute;
+			top: 2%;
+			right: 2%;
+			color: #fff;
+		}
+		#toastContainer{
+/*			position: absolute;
+			bottom: 0;
+			left: 50%;
+
+*/			pointer-events: none;
+			/*background-color: var(--bs-black);*/
+		} 
+		#toast{
+			position: absolute;
+			bottom:1rem;
+			left:50%;
+			transform: translateX(-50%);			
+			background-color: #000;
+			color: var(--bs-white);
+		}
   </style>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
 </head>
@@ -56,7 +76,7 @@
 	        </button>
 	        <h1>EDIT NUMBER</h1>
 	        <p>Enter your mobile number to sign up / sign in to your account.</p>
-	        <form action="thankyou.html" >
+	        <form action="thankyou.html" method="POST">
 		      <div class="input-group mb-3 px-4">
 			      <span class="input-group-text" id="basic-addon1">+91</span>
 			      <input type="tel" autocomplete="off" id="number" minlength="10" pattern="[0-9]{10}" maxlength="10" class="form-control" required placeholder="Enter your mobile number" aria-label="WhatsApp number" aria-describedby="basic-addon1">
@@ -69,13 +89,13 @@
 	</div>
 
 
-	<div id="main" class="container d-flex align-items-center justify-content-around" style="height:100vh;">
+	<div id="main" class="container d-flex align-items-center justify-content-around" style="/*height:100vh;*/">
 		<div class="text-center  d-flex align-items-center flex-column justify-content-around">
 			<img src="mobileotp.svg" alt="mobile OTP">
 			<h1 style="font-size:calc(2.7rem ); font-weight:600;">Login with OTP</h1>
 			<p>we sent an SMS with OTP to +91-xxxxxxxxxx</p>
 			<div style="width: 100%;">
-				<form action="thankyou.html" >
+				<form action="thankyou.html" method="POST">
 	  				<div class="input-group">
 	    				<input type="tel" autocomplete="off" id="otp" minlength="4" pattern="[0-9]{4}" maxlength="4" class="form-control" required placeholder="4 digit OTP" aria-label="OTP">
 	    			</div >
@@ -101,11 +121,24 @@
 		</div>
 	</div>
 
+
+	<!-- Toast/Notification -->
+	<div class="container text-center" >
+		<div class="toast" id="toast" data-autohide="true">
+			<div class="toast-body">
+				OTP Sent.
+			</div>
+		</div>
+	</div>
+
+<!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"> </script >
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script >
 
   <script>
     let number;
+	var toast = new bootstrap.Toast(document.querySelector("#toast"), {delay:1000});
+	// toast.dispose();
     // console.log(window.document.querySelector("#otp"));
     window.document.querySelector("#otp").addEventListener("keyup", (e)=>{
       number = e.target.value.toString().length;
@@ -140,6 +173,16 @@
 
       }
     });
-</script>
+
+	var otpBtn = [...window.document.querySelectorAll("#editBtn")];
+	otpBtn[1].addEventListener("click", (e)=>{
+
+
+		toast.show();
+
+	});
+
+    
+  </script>
 </body>
 </html>
