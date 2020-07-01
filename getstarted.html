@@ -7,34 +7,29 @@
   <title>Sign-Up</title>
   <!-- CSS only -->
   <style >
-/*    input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-    }
-
-    input[type=number] {
-      -moz-appearance: textfield;
-    }
-  */</style>
+  body{
+    background: linear-gradient(180deg, #762775, #7455cd) no-repeat; min-height:100vh; 
+  }
+  </style>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
 
 </head>
-<body style="background: linear-gradient(180deg, #762775, #7455cd) no-repeat; min-height:100vh; " class="d-flex align-items-center">
+<body class="d-flex align-items-center">
 
-
-<div class="card  mx-auto align-middle" style="width: 25rem;" >
+<!-- Sign Up Card -->
+<div class="card  mx-auto align-middle" style="width: 24rem;" >
   <div class="card-img-top p-2 text-center" style="background: #2986ff; color:white;">
     <h3 class="pb-3">Let's get started</h3>
     <p class="pb-2 px-4">Enter your mobile number to sign up/ sign in to your account</p>
 
-  <form action="thankyou.html">
-    <div class="input-group mb-3 px-4">
-    <span class="input-group-text" id="basic-addon1">+91</span>
-    <input type="tel" autocomplete="off" id="number" minlength="10" pattern="[0-9]{10}" maxlength="10" class="form-control" required placeholder="Enter your mobile number" aria-label="WhatsApp number" aria-describedby="basic-addon1">
-    </div >
-    <button type="submit" id="submitBtn" class="btn btn-secondary my-3">Submit</button>
-  </form>
-</div>
+    <form action="login.html" method="POST">
+      <div class="input-group mb-3 px-4">
+      <span class="input-group-text" id="basic-addon1">+91</span>
+      <input type="tel" autocomplete="off" id="number" minlength="10" pattern="[0-9]{10}" maxlength="10" class="form-control" required placeholder="Enter your mobile number" aria-label="WhatsApp number" aria-describedby="basic-addon1">
+      </div >
+      <button type="submit" id="submitBtn" class="btn btn-secondary my-3">Submit</button>
+    </form>
+  </div>
   <div class="card-body d-flex flex-column justify-content-between">
       <div class="d-flex align-items-start justify-content-start">
         <img src="tick.svg" alt="check">
@@ -56,14 +51,12 @@
         <img src="tick.svg" alt="check">
         <p>Free Test & Analysis</p>
       </div>
-    </div>
-    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p > -->
   </div>
 </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"> </script >
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script >
-  <script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"> </script >
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script >
+<script>
     let number;
     window.document.querySelector("#number").addEventListener("keyup", (e)=>{
       number = e.target.value.toString().length;
@@ -79,6 +72,6 @@
 
       }
     });
-  </script>
+</script>
 </body>
 </html>
